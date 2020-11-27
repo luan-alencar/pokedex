@@ -63,9 +63,6 @@ public class PokeDex implements PokemonInterface {
 			if (maisAntigo == null) {
 				maisAntigo = pokemon;
 			}
-
-			// verificar se o pokemon atual da lista é mais antigo que o pokemon guardado
-			// mais antigo.
 			if (pokemon.isMaisAntigo(maisAntigo)) {
 				maisAntigo = pokemon;
 			}
@@ -76,10 +73,6 @@ public class PokeDex implements PokemonInterface {
 	public Tipo getTipoPokemonPredominante() {
 		Tipo tipo = null; // tipo predominante;
 		int quantidadeDeTipoMaior = 0; // quantidade to tipo predominante;
-
-		// POKEMON LUTADOR É O PREDOMINANTE COM 3 POKEMONS
-		// [ POKEMON.NORMAL, POKEMON.LUTADOR, POKEMON.NORMAL, POKEMON.VENENOSO,
-		// POKEMON.LUTADOR, POKEMON.LUTADOR ]
 		for (int i = 0; i < pokemons.size(); i++) {
 			Pokemon pokemon = pokemons.get(i);
 			int quantidadePokemons = getQuantidadePokemonTipo(pokemon.getTipo());
@@ -93,9 +86,7 @@ public class PokeDex implements PokemonInterface {
 					quantidadeDeTipoMaior = quantidadePokemons;
 				}
 			}
-
 		}
-
 		return tipo;
 	}
 
