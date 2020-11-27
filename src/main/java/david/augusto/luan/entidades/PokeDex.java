@@ -4,25 +4,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import david.augusto.luan.entidades.metodos.AdicionarPokemon;
 import david.augusto.luan.exceptions.PokemonInexistenteException;
-import david.augusto.luan.interfaces.PokemonInterface;
 import lombok.Getter;
 
 @Getter
-public class PokeDex implements PokemonInterface {
+public class PokeDex {
 
 	private List<Pokemon> pokemons;
 
+	@Autowired
+	protected AdicionarPokemon adicionarPokemon;
+
 	public PokeDex() {
 		this.pokemons = new ArrayList<Pokemon>();
-	}
-
-	public void adicionarPokemon(Pokemon pokemon) {
-		pokemons.add(pokemon);
-	}
-
-	public void adicionarPokemon(String nome, Tipo tipo, Data diaCaptura) {
-		adicionarPokemon(new Pokemon(nome, tipo, diaCaptura));
 	}
 
 	public int getQuantidadePokemons() {
@@ -50,7 +47,6 @@ public class PokeDex implements PokemonInterface {
 				pokemonsCapturadosNoDia.add(pokemon);
 			}
 		}
-
 		if (pokemonsCapturadosNoDia.isEmpty()) {
 			return null;
 		}
