@@ -4,28 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import david.augusto.luan.entidades.metodos.AdicionarPokemon;
 import david.augusto.luan.exceptions.PokemonInexistenteException;
 import lombok.Getter;
 
 @Getter
 public class PokeDex {
 
-	private List<Pokemon> pokemons;
-
-	@Autowired
-	protected AdicionarPokemon adicionarPokemon;
+	protected List<Pokemon> pokemons;
 
 	public PokeDex() {
 		this.pokemons = new ArrayList<Pokemon>();
-	}
-
-
-	// próximo método a ser transformando em classe
-	public int getQuantidadePokemons() {
-		return pokemons.size();
 	}
 
 	public int getQuantidadePokemonTipo(Tipo tipo) {
