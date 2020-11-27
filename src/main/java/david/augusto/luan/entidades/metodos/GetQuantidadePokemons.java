@@ -1,4 +1,4 @@
-package david.augusto.luan.metodos;
+package david.augusto.luan.entidades.metodos;
 
 import david.augusto.luan.entidades.PokeDex;
 
