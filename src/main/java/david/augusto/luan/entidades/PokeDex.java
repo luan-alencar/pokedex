@@ -1,13 +1,15 @@
 package david.augusto.luan.entidades;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import david.augusto.luan.exceptions.PokemonInexistenteException;
+import david.augusto.luan.interfaces.PokemonInterface;
 import lombok.Getter;
 
 @Getter
-public class PokeDex {
+public class PokeDex implements PokemonInterface {
 
 	private List<Pokemon> pokemons;
 
@@ -43,19 +45,15 @@ public class PokeDex {
 
 	public List<Pokemon> getPokemonsCapturados(Data dia) {
 		List<Pokemon> pokemonsCapturadosNoDia = new ArrayList<>();
-
 		for (Pokemon pokemon : pokemons) {
-
 			if (pokemon.getDiaCaptura().equals(dia)) {
 				pokemonsCapturadosNoDia.add(pokemon);
 			}
-
 		}
 
 		if (pokemonsCapturadosNoDia.isEmpty()) {
 			return null;
 		}
-
 		return pokemonsCapturadosNoDia;
 	}
 
@@ -118,10 +116,17 @@ public class PokeDex {
 	}
 
 	public void removerPokemons(Pokemon p) throws PokemonInexistenteException {
-		List<Pokemon> pokemonsComOMesmoNome = acharPokemonPorNome(p.getNome());
-		if (pokemonsComOMesmoNome.size() == 0) {
-			throw new PokemonInexistenteException();
+		Iterator<Pokemon> iterator = pokemons.iterator();
+		boolean it = false;
+		while (iterator.hasNext()) {
+			Pokemon pokemon = iterator.next();
+			if (pokemon.getNome().equals(p.getNome())) {
+				iterator.remove();
+				it = true;
+			}
+			if (!it) {
+				throw new PokemonInexistenteException();
+			}
 		}
-		pokemons.removeAll(pokemonsComOMesmoNome);
 	}
 }
