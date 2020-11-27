@@ -22,6 +22,8 @@ public class PokeDex {
 		this.pokemons = new ArrayList<Pokemon>();
 	}
 
+
+	// próximo método a ser transformando em classe
 	public int getQuantidadePokemons() {
 		return pokemons.size();
 	}
