@@ -9,25 +9,25 @@ import david.augusto.luan.exceptions.PokemonInexistenteException;
 
 public interface PokemonInterface {
 
-	public void adicionarPokemon(Pokemon pokemon);
+	public abstract void adicionarPokemon(Pokemon pokemon);
 
-	public void adicionarPokemon(String nome, Tipo tipo, Data diaCaptura);
+	public abstract void adicionarPokemon(String nome, Tipo tipo, Data diaCaptura);
 
-	public int getQuantidadePokemons();
+	public abstract int getQuantidadePokemons();
 
-	public int getQuantidadePokemonTipo(Tipo tipo);
+	public abstract int getQuantidadePokemonTipo(Tipo tipo);
 
-	public List<Pokemon> getPokemonsPorTipo(Tipo tipo);
+	public abstract List<Pokemon> getPokemonsPorTipo(Tipo tipo);
 
-	public List<Pokemon> getPokemonsCapturados(Data dia);
+	public abstract List<Pokemon> getPokemonsCapturados(Data dia);
 
-	public Pokemon getPokemonMaisAntigo();
+	public abstract Pokemon getPokemonMaisAntigo();
 
-	public Tipo getTipoPokemonPredominante();
+	public abstract Tipo getTipoPokemonPredominante();
 
-	public List<Pokemon> removerPokemons(Tipo tipo);
+	public abstract List<Pokemon> removerPokemons(Tipo tipo);
 
-	public List<Pokemon> acharPokemonPorNome(String nome);
+	public abstract List<Pokemon> acharPokemonPorNome(String nome);
 
-	public void removerPokemons(Pokemon p) throws PokemonInexistenteException;
+	public abstract void removerPokemons(Pokemon p) throws PokemonInexistenteException;
 }
