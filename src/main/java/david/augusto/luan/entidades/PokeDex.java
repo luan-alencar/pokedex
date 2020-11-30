@@ -57,20 +57,18 @@ public class PokeDex {
 	}
 
 	public Tipo getTipoPokemonPredominante() {
-		Tipo tipo = null; // tipo predominante;
-		int quantidadeDeTipoMaior = 0; // quantidade to tipo predominante;
+		Tipo tipo = null;
+		int tipoMaior = 0;
 		for (int i = 0; i < pokemons.size(); i++) {
 			Pokemon pokemon = pokemons.get(i);
 			int quantidadePokemons = getQuantidadePokemonTipo(pokemon.getTipo());
-
 			if (tipo == null) {
 				tipo = pokemon.getTipo();
-				quantidadeDeTipoMaior = quantidadePokemons;
-			} else {
-				if (quantidadePokemons > quantidadeDeTipoMaior) {
-					tipo = pokemon.getTipo();
-					quantidadeDeTipoMaior = quantidadePokemons;
-				}
+				tipoMaior = quantidadePokemons;
+			}
+			if (quantidadePokemons > tipoMaior) {
+				tipo = pokemon.getTipo();
+				tipoMaior = quantidadePokemons;
 			}
 		}
 		return tipo;
